@@ -32,3 +32,5 @@ STATICFILES_DIRS = (
 from django.contrib import admin
 import YourModel
 admin.site.register(YourModel)
+
+在 python3 里，要把 model 的 __unicode__() 方法，都改成 __str__()，要不然 admin 页面会出现类似 Category object 之类的东西

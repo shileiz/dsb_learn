@@ -1,12 +1,10 @@
-{% load substring %}
-
 {% block main %}
     {% with post_list=posts %}
     {% if post_list %}
     {% for post in post_list %}
         <div class="article">
             <h2 class='under_line'>
-                <a href="{{ post.get_absolute_url }}" rel="bookmark" title="详细阅读 {{ post.title }}">
+                <a href="/post/{{post.id }}/" rel="bookmark" title="详细阅读 {{ post.title }}">
                     {% autoescape off %}{{ post.title }}{% endautoescape %}
                 </a>
             </h2>
@@ -29,7 +27,7 @@
                     {% endautoescape %}
                     </p>
                 </span>
-                <span class="pull-right"><a href="{{ post.get_absolute_url }}" title="{{ post.title }}" rel="bookmark">阅读全文</a></span>
+                <span class="pull-right"><a href="/post/{{ post.id }}/" title="{{ post.title }}" rel="bookmark">阅读全文</a></span>
             </div>
 
         </div>
