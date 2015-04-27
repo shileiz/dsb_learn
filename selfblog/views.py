@@ -15,4 +15,5 @@ class IndexView(ListView):
 
 
 class PostDetailView(DetailView):
+    model = Post
     template_name = 'detail.html'

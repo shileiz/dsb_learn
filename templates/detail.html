@@ -21,46 +21,14 @@
         {% endfor %}
         | 阅读 {{ post.view_times }}  次
         | 发布：{{ post.pub_time|date:"Y-m-d P" }}
-        {% if user.is_authenticated %}
-            <a href="{% url 'xadmin:blog_post_change' post.id %}" target="_blank">edit</a>
-        {% endif %}
     </div>
 
-    {% include 'includes/share.html' %}
-    
     <div class="clear"></div>
 
     <div class="content">
         {% autoescape off %}
         {{ post.content_html }}
         {% endautoescape %}
-    </div>
-
-    {% include 'includes/share.html' %}
-
-    <div class="clear box"></div>
-
-    <div class="box">
-        <div class="row">
-            <div class="span4">
-                <b>相关文章</b>
-                <ul>
-                    {% for item in related_posts %}
-                    <li><a href="/{{ item.alias }}.html">{{ item.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="span4">
-                <b>别人正在读</b>
-                <ul>
-                    {% for ip, post in lru_views %}
-                        {% if ip != cur_user_ip %}
-                        <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
     </div>
 
     {% endif %}
