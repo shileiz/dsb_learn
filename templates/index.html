@@ -9,6 +9,7 @@
                 </a>
             </h2>
             <div class="info">
+                作者：{{ post.author }} 
                 | 分类：<a href="/category/{{ post.category.alias }}" title="查看 post.category.name 中的全部文章" rel="category tag">{{ post.category.name }}</a> 
                 | 标签： 
                 {% for tag in post.tags_list %}
